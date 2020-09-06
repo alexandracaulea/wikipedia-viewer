@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: #1b262c;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li a {
+  display: block;
+  text-decoration: none;
+}
+
+section {
+  text-align: center;
+  margin: 100px 0;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+li {
+  padding: 20px;
+  margin: 10px 15px;
+  background-color: #f9f9fd;
+  border-radius: 15px;
+  border: 1px solid #e9ecef;
+}
+
+.search-result {
+  max-width: 80%;
+  margin: 0 auto;
+}

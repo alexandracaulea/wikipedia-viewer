@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wikipedia Viewer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/css/app.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Wikipedia Viewer</h1>
+        <a
+          class="random-article"
+          href="https://en.wikipedia.org/wiki/Special:Random"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Read a random Wikipedia article</a
+        >
+        <form class="search-form" novalidate="true">
+          <label for="search-text">Search for an article</label>
+          <input
+            id="search-text"
+            type="text"
+            name="input-data"
+            autocomplete="off"
+          />
+          <button type="submit">Search</button>
+        </form>
+        <p class="error-message"></p>
+      </section>
+      <div>
+        <ul
+          class="search-list"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-relevant="text"
+        ></ul>
+      </div>
+    </main>
+    <script src="../src/js/index.js"></script>
+  </body>
+</html>
