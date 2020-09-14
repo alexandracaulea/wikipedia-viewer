@@ -3,45 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Wikipedia Viewer project" />
+    <meta name="author" content="Alexandra Caulea" />
     <title>Wikipedia Viewer</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../src/css/app.css" />
   </head>
   <body>
-    <main>
-      <section>
-        <h1>Wikipedia Viewer</h1>
+    <header class="intro">
+      <div class="container">
+        <h1 class="intro__title">Wikipedia Viewer</h1>
         <a
-          class="random-article"
+          class="intro__link"
           href="https://en.wikipedia.org/wiki/Special:Random"
           target="_blank"
           rel="noopener noreferrer"
-          >Read a random Wikipedia article</a
-        >
-        <form class="search-form" novalidate="true">
-          <label for="search-text">Search for an article</label>
+          >Read a random Wikipedia article
+          <svg
+            class="external-link-icon"
+            aria-hidden="true"
+            width="16"
+            height="16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.666 8.777v4.667a1.556 1.556 0 01-1.555 1.555H2.556A1.556 1.556 0 011 13.444V4.889a1.556 1.556 0 011.556-1.556h4.666M10.334 1H15v4.667M6.444 9.555L14.999 1"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            /></svg
+        ></a>
+        <form class="search-form">
+          <label for="search-text" class="search__label"
+            >Search for an article</label
+          >
           <input
             id="search-text"
             type="text"
             name="input-data"
+            class="search__input"
             autocomplete="off"
+            spellcheck="true"
           />
-          <button type="submit">Search</button>
+          <button type="submit" class="search__button">Search</button>
         </form>
         <p class="error-message"></p>
-      </section>
-      <div>
-        <ul
-          class="search-list"
-          role="status"
-          aria-live="polite"
-          aria-atomic="true"
-          aria-relevant="text"
-        ></ul>
       </div>
+    </header>
+    <main>
+      <ul
+        class="search-result"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-relevant="text"
+      ></ul>
     </main>
     <script src="../src/js/index.js"></script>
   </body>
