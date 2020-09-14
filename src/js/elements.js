@@ -1,3 +1,3 @@
 export const searchForm = document.querySelector('.search-form');
-export const searchList = document.querySelector('.search-list');
+export const searchResult = document.querySelector('.search-result');
 export const errorMessage = document.querySelector('.error-message');
