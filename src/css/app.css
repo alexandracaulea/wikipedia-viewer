@@ -60,6 +60,18 @@ body {
   color: #222831;
 }
 
+.github-corner {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0.3;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.github-corner:hover {
+  opacity: 0.7;
+}
+
 .intro {
   min-height: 100vh;
   display: flex;
@@ -156,4 +168,18 @@ body {
 .search-result h2 {
   font-size: 2rem;
   color: #5d54a4;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }

@@ -15,3 +15,7 @@ Live example: https://wikipedia-viewer-project.netlify.app/
 
 - URL to get a random Wikipedia article: https://en.wikipedia.org/wiki/Special:Random.
 - An entry on using Wikipedia's API: https://www.mediawiki.org/wiki/API:Main_page.
+
+## Credit
+
+The file _wikipedia-logo.svg_ was downloaded from [Wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/2c/Wikipedia_logo_outline.svg).
