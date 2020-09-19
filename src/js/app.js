@@ -1,3 +1,4 @@
+import { sanitize } from 'dompurify';
 import { PROXY, SEARCH_URL, PAGE_URL } from './consts';
 import { searchForm, searchResult, errorMessage } from './elements';
 
@@ -13,16 +14,24 @@ const hideErrorMessage = () => {
   errorMessage.removeAttribute('role', 'alert');
 };
 
-// Get the data submitted by the user
-const getData = ({ target }) => {
-  const formData = new FormData(target);
-  const inputData = formData.get('input-data');
-  if (inputData === '') {
+// Check for error
+const checkInputRequired = (input) => {
+  if (input === '') {
     displayErrorMessage();
   } else {
     hideErrorMessage();
   }
-  return inputData;
+};
+
+const sanitizeData = (inputData) => sanitize(inputData);
+
+// Get the data submitted by the user
+const getData = ({ target }) => {
+  const formData = new FormData(target);
+  const inputData = formData.get('input-data');
+  const cleanInput = sanitizeData(inputData);
+  checkInputRequired(cleanInput);
+  return cleanInput;
 };
 
 // Generate the url
@@ -59,6 +68,7 @@ const convertDataToHTML = (data) => {
 // Display the data
 const displayData = async (e) => {
   e.preventDefault();
+  getData(e);
   try {
     const data = await fetchData(e);
     searchResult.innerHTML = convertDataToHTML(data);
