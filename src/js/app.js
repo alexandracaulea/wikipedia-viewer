@@ -58,6 +58,7 @@ const convertDataToHTML = (data) => {
           <a href=${PAGE_URL}${item.pageid} target="_blank" rel="noopener noreferrer">
             <h2>${item.title}</h2>
             <p>${item.snippet}</p>
+            <span class="sr-only">(opens in a new tab)</span>
           </a>
         </li>`
     )
@@ -72,6 +73,7 @@ const displayData = async (e) => {
   try {
     const data = await fetchData(e);
     searchResult.innerHTML = convertDataToHTML(data);
+    searchResult.scrollIntoView({ behavior: 'smooth' });
   } catch (err) {
     console.log(err);
   }
