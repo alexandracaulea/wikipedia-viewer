@@ -1,6 +1,16 @@
 import { sanitize } from 'dompurify';
 import { PROXY, SEARCH_URL, PAGE_URL } from './consts';
-import { searchForm, searchResult, errorMessage } from './elements';
+import { searchForm, searchResult, errorMessage, formLoader } from './elements';
+
+// Show loader
+const showLoader = () => {
+  formLoader.classList.remove('is-hidden');
+};
+
+// Remove loader
+const hideLoader = () => {
+  formLoader.classList.add('is-hidden');
+};
 
 // Show error message
 const displayErrorMessage = () => {
@@ -18,6 +28,7 @@ const hideErrorMessage = () => {
 const checkInputRequired = (input) => {
   if (input === '') {
     displayErrorMessage();
+    hideLoader();
   } else {
     hideErrorMessage();
   }
@@ -29,6 +40,7 @@ const sanitizeData = (inputData) => sanitize(inputData);
 const getData = ({ target }) => {
   const formData = new FormData(target);
   const inputData = formData.get('input-data');
+  showLoader();
   const cleanInput = sanitizeData(inputData);
   checkInputRequired(cleanInput);
   return cleanInput;
@@ -73,6 +85,7 @@ const displayData = async (e) => {
   try {
     const data = await fetchData(e);
     searchResult.innerHTML = convertDataToHTML(data);
+    hideLoader();
     searchResult.scrollIntoView({ behavior: 'smooth' });
   } catch (err) {
     console.log(err);

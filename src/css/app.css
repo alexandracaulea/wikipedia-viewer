@@ -141,6 +141,57 @@ body {
   background-color: #d660d6;
 }
 
+.is-hidden {
+  display: none;
+}
+
+.form-loader,
+.form-loader::before,
+.form-loader::after {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  animation: form-loader 1.8s infinite ease-in-out;
+  animation-fill-mode: both;
+}
+
+.form-loader {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 0.8em;
+  animation-delay: -0.16s;
+}
+
+.form-loader::before,
+.form-loader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+
+.form-loader::before {
+  left: -2.5em;
+  animation-delay: -0.32s;
+}
+
+.form-loader::after {
+  left: 2.5em;
+}
+
+@keyframes form-loader {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
 .search-result {
   max-width: 800px;
   margin: 0 auto;
