@@ -1,5 +1,5 @@
 import { sanitize } from 'dompurify';
-import { PROXY, SEARCH_URL, PAGE_URL } from './consts';
+import { SEARCH_URL, PAGE_URL } from './consts';
 import { searchForm, searchResult, errorMessage, formLoader } from './elements';
 
 // Show loader
@@ -48,7 +48,7 @@ const getData = ({ target }) => {
 
 // Generate the url
 const generateURL = (e) => {
-  const API_URL = `${PROXY}${SEARCH_URL}&srsearch=${getData(e)}`;
+  const API_URL = `${SEARCH_URL}${getData(e)}`;
   return API_URL;
 };
 
@@ -57,8 +57,16 @@ const fetchData = async (e) => {
   const url = generateURL(e);
   const res = await fetch(url);
   const data = await res.json();
-  const result = data.query.search;
-  return result;
+  const results = data.query.pages;
+  const resultsArray = [];
+  Object.values(results).forEach((result) =>
+    resultsArray.push({
+      pageid: result.pageid,
+      title: result.title,
+      extract: result.extract,
+    })
+  );
+  return resultsArray;
 };
 
 // Convert the data to HTML
@@ -69,7 +77,7 @@ const convertDataToHTML = (data) => {
         <li>
           <a href=${PAGE_URL}${item.pageid} target="_blank" rel="noopener noreferrer">
             <h2>${item.title}</h2>
-            <p>${item.snippet}</p>
+            <p>${item.extract}</p>
             <span class="sr-only">(opens in a new tab)</span>
           </a>
         </li>`
