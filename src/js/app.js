@@ -1,6 +1,12 @@
 import { sanitize } from 'dompurify';
 import { SEARCH_URL, PAGE_URL } from './consts';
-import { searchForm, searchResult, errorMessage, formLoader } from './elements';
+import {
+  searchForm,
+  searchResult,
+  errorMessage,
+  formLoader,
+  searchHeadline,
+} from './elements';
 
 // Show loader
 const showLoader = () => {
@@ -92,6 +98,8 @@ const displayData = async (e) => {
   getData(e);
   try {
     const data = await fetchData(e);
+    searchHeadline.classList.remove('is-hidden');
+    searchHeadline.textContent = `Results for "${getData(e)}"`;
     searchResult.innerHTML = convertDataToHTML(data);
     hideLoader();
     searchResult.scrollIntoView({ behavior: 'smooth' });
