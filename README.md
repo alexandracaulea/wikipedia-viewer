@@ -16,6 +16,25 @@ Live example: https://wikipedia-viewer-project.netlify.app/
 - URL to get a random Wikipedia article: https://en.wikipedia.org/wiki/Special:Random.
 - An entry on using Wikipedia's API: https://www.mediawiki.org/wiki/API:Main_page.
 
+## How To Use It
+
+### Installation
+
+1. Clone the repository: `git clone https://github.com/alexandracaulea/wikipedia-viewer`
+2. Go to the project: `cd wikipedia-viewer`
+3. Install project dependencies by running: `npm install`
+
+### Using this repository
+
+1. For the development run: `npm run dev`
+2. To build run: `npm run build`
+
+### Live Example
+
+[Live example on Netlify](https://wikipedia-viewer-project.netlify.app/)
+
+![](wikipedia-viewer.gif)
+
 ## Credit
 
 The file _wikipedia-logo.svg_ was downloaded from [Wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/2c/Wikipedia_logo_outline.svg).
